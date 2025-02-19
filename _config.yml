@@ -1,5 +1,5 @@
 # Site settings
-title: Richard Feynman
+title: Quantum Lab@UESTC
 email: richard@university.edu
 description: Academic webpage of Dr. Richard Feynman
 baseurl: ""
@@ -27,12 +27,12 @@ contact: >
 
 # Pages shown in navbar
 nav_pages:
-  - name: about
-  - name: publications
+  - name: About
+  - name: Publications
   - name: talks
   - name: research
   - name: software
-  - name: team
+  - name: Team
   - name: teaching
   - name: blogs
 
