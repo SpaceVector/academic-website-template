@@ -52,7 +52,7 @@ permalink: /Team/
 {% endif %}
 
 <div class="col-sm-2">
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 250px; height: 300px; object-fit: cover; object-position: center;"/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 200px; height: 250px; object-fit: cover; object-position: center;"/>
 </div>
 <div class="col-sm-4 col-xs-12">
   <h4>{{ member.name }}</h4>
@@ -90,7 +90,7 @@ permalink: /Team/
 {% endif %}
 
 <div class="col-sm-2">
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 250px; height: 300px; object-fit: cover; object-position: center;"/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 200px; height: 250px; object-fit: cover; object-position: center;"/>
 </div>
 <div class="col-sm-4 col-xs-12">
   <h4>{{ member.name }}</h4>
@@ -136,7 +136,7 @@ permalink: /Team/
 {% endif %}
 
 <div class="col-sm-2">
-<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 250px; height: 300px; object-fit: cover; object-position: center;"/>
+<img src="{{ site.url }}{{ site.baseurl }}/images/{{ member.photo }}" width="100%" style="width: 200px; height: 250px; object-fit: cover; object-position: center;"/>
 </div>
 <div class="col-sm-4 col-xs-12">
   <h4>{{ member.name }}</h4>
