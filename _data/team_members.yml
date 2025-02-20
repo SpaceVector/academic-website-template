@@ -1,8 +1,76 @@
-- name: Example student name
+- name: Jin Shan
   photo: rock.jpg
-  info: Postdoc, started Oct 2040
+  info: Ph.D. student
   email: exampleemail@gmail.com
-  website: https://website.com
+  # website: https://website.com
+
+- name: Wu Shaojun
+  photo: rock.jpg
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Hao Yajie
+  photo: rock.jpg
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Yang Zhen
+  photo: rock.jpg
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Wu Yinjie
+  photo: rock.jpg
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Guo Zengyan
+  photo: rock.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Ye Xuan
+  photo: rock.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Yu Liang
+  photo: yuliang.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Feng Yang
+  photo: rock.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Pan Xiangchen
+  photo: rock.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Qin Jianhuai
+  photo: qinjianhuai.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: Tan Youwei
+  photo: rock.jpg
+  info: Master. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+
 
 - name: "This could be you !"
   photo: rock.jpg

@@ -59,16 +59,16 @@ pre{
 {% endif %}
 
 {% if entry.abstract %}
-<div id="a{{entry.key}}" style="display: none; background-color:transparent; border-radius:5px; padding:10px; margin-bottom:20px;">
+<div id="a{{entry.key}}" style="display: none; background-color:#eeeeee; border-radius:5px; padding:10px; margin-bottom:20px; font-size: 15px;">
 <pre>{{ entry.bibtex | remove: "entry.abstract" }}</pre>
 </div>
 {% else %}
-<div id="a{{entry.key}}" style="display: none; background-color:transparent; border-radius:5px; padding:10px; margin-bottom:20px;">
+<div id="a{{entry.key}}" style="display: none; background-color:#eeeeee; border-radius:5px; padding:10px; margin-bottom:20px; font-size: 15px;">
 <pre>{{ entry.bibtex }}</pre>
 </div>
 {% endif %}
 
-<div id="b{{entry.key}}" style="display: none; background-color:transparent; border-radius:5px; padding:10px; margin-bottom:20px;">
+<div id="b{{entry.key}}" style="display: none; background-color:#eeeeee; border-radius:5px; padding:10px; margin-bottom:20px; font-size: 15px;">
 <pre>{{entry.abstract}}</pre>
 </div>
 

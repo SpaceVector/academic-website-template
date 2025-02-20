@@ -1,7 +1,7 @@
 # Site settings
 title: Quantum Lab@UESTC
 email: richard@university.edu
-description: Academic webpage of Dr. Richard Feynman
+description: Academic webpage of Professor. Wang Xiaoting's Group
 baseurl: ""
 url: ""
 
@@ -12,7 +12,7 @@ url: ""
 
 # Footer info
 affiliation: >
-  Richard Feynman<br/>
+  Wang Xiaoting<br/>
   Professor of Physics<br/>
   California Institute of Technology
 
@@ -27,14 +27,14 @@ contact: >
 
 # Pages shown in navbar
 nav_pages:
-  - name: About
-  - name: Publications
-  - name: talks
-  - name: research
-  - name: software
+  # - name: About
   - name: Team
-  - name: teaching
-  - name: blogs
+  - name: Publications
+  # - name: talks
+  - name: research
+  # - name: software
+  # - name: teaching
+  # - name: blogs
 
 include:
   - .htaccess

@@ -42,6 +42,7 @@
   &.disabled {
     pointer-events: none;
     user-select: none;
+    -webkit-user-select: none;
     opacity: var(--#{$prefix}btn-close-disabled-opacity);
   }
 }

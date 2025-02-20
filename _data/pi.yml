@@ -1,17 +1,21 @@
-- name: Dr. Richard Feynman
+- name: Dr. Wang Xiaoting
   photo: headshot.jpg
-  info: Richard C. Tolman Professor, California Institute of Technology
-  email: richard@university.edu
-  github: https://github.com/
-  researchgate: https://www.researchgate.net/
-  scholar: https://scholar.google.com/citations?user=B7vSqZsAAAAJ
-  cv: cv/cv.pdf
+  info: Professor, Institute of Fundamental and Frontier Sciences of UESTC
+  email: xiaoting@uestc.edu.cn
+  # github: https://github.com/
+  # researchgate: https://www.researchgate.net/
+  scholar: https://scholar.google.com/citations?user=GO7V6ZYAAAAJ&hl=en&oi=ao
+  # cv: cv/cv.pdf
   # Change the items in "education" you have (up to 6)
   education:
     [
-      "(1942) Ph.D. Physics, Princeton University",
-      "(1939) B.S. Physics, Massachusetts Institute of Technology",
+      "(2016-now) Professor. Institute of Fundamental and Frontier Sciences of UESTC",
+      "(2015-2016) Post-Doctor.  Louisiana State University",
+      "(2012-2014) Post-Doctor.  MIT",
+      "(2011-2014) Post-Doctor.  University of Massachusetts Boston",
+      "(2011) Ph.D. University of Cambridge",
+      "(2006) Master. University of Cambridge",
     ]
 
   educationshort:
-    ["(1942) Ph.D. Physics, Princeton", "(1939) B.S. Physics, MIT"]
+    ["(2011) Ph.D. University of Cambridge", "(2006) Master. University of Cambridge"]

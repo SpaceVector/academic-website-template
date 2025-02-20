@@ -2,7 +2,8 @@
 {% for member in site.data.pi %}
 <div class="jumbotron">
    <center>
-   <a href="{{site.url}}{{site.baseurl}}/About"><img src="{{site.url}}{{site.baseurl}}/images/{{ member.photo }}" width="60%" style="block:inline; margin-left:auto; margin-right:auto; margin-bottom:5px;"/></a>
+   <!-- <a href="{{site.url}}{{site.baseurl}}/About"><img src="{{site.url}}{{site.baseurl}}/images/{{ member.photo }}" width="60%" style="block:inline; margin-left:auto; margin-right:auto; margin-bottom:5px;"/></a> -->
+   <a><img src="{{site.url}}{{site.baseurl}}/images/{{ member.photo }}" width="60%" style="block:inline; margin-left:auto; margin-right:auto; margin-bottom:5px;" alt="描述图片内容"/></a>
    <h4>{{ member.name }}</h4>
    <div style="margin-bottom:5px">
    {% if member.email %}<a href="mailto:{{ member.email }}" target="_blank"><i class="fa fa-envelope-square fa-3x"></i></a> {% endif %}
@@ -24,13 +25,13 @@
 </div>
 
 <div class="jumbotron">
-  <h4>New Works</h4>
+  <h4>Latest work</h4>
 
   {% for article in site.data.news limit:3 %}
   <b>{{ article.date }}</b>
     <p>{{ article.headline }}</p>
   {% endfor %}
   
-  <h5><a href="{{ site.url }}{{ site.baseurl }}/Publications/">see all Works ...</a></h5>
+  <h5><a href="{{ site.url }}{{ site.baseurl }}/Publications/">more...</a></h5>
 
 </div>
