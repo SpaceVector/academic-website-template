@@ -20,6 +20,10 @@ pre{
     word-wrap: break-word; 
     width:100%; overflow-x:auto;
 }
+.math-content {
+    font-family: "Times New Roman", serif;
+    line-height: 1.5;
+}
 </style>
 
 
@@ -69,7 +73,9 @@ pre{
 {% endif %}
 
 <div id="b{{entry.key}}" style="display: none; background-color:#eeeeee; border-radius:5px; padding:10px; margin-bottom:20px; font-size: 15px;">
-<pre>{{entry.abstract}}</pre>
+    <div class="math-content">
+        {{entry.abstract | replace: '$', '&#36;' }}
+    </div>
 </div>
 
 
@@ -86,6 +92,7 @@ function toggleAbstract{{entry.key}}(parameter) {
     var x= document.getElementById('b{{entry.key}}');
     if (x.style.display === 'none') {
         x.style.display = 'block';
+        // 添加延迟确保DOM更新
         MathJax.typesetPromise([x]).catch(function(err) {
             console.log('Typeset error:', err);
         });

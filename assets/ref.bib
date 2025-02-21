@@ -1,25 +1,8 @@
-@incollection{example_invited_talk,
-  author = {J. Doe},
-  note = {Example Location},
-  publisher = {Example Talk Name},
-  year = {2040},
-  keywords = "invited",
-}
-
 @software{example_software,
   author = {J. Doe},
   title = {Example software},
   url = {https://example.com},
   date = {2040},
-}
-
-@inproceedings{example_proceeding,
-    Author = {J. Doe},
-    Year = {2040},
-    Title = {Example title},
-    Booktitle = {Example Book},
-    Address = {Pasadena, CA},
-    abstract = {Example abstract.},
 }
 
 @incollection{example_conference,
@@ -29,13 +12,13 @@
     year = {2040},
 }
 
-@unpublished{he2020quantumtransfercomponentanalysis,
-    Author = {Xi He and Chufan Lyu and Min-Hsiu Hsieh and Xiaoting Wang},
-    Title = {Quantum transfer component analysis for domain adaptation},
-    Note = {arXiv:1912.09113},
-    doi = {1912.09113},
-    year={2019},
-    abstract = {Domain adaptation, a crucial sub-field of transfer learning, aims to utilize known knowledge of one data set to accomplish tasks on another data set. In this paper, we perform one of the most representative domain adaptation algorithms, transfer component analysis (TCA), on quantum devices. Two different quantum implementations of this transfer learning algorithm; namely, the linear-algebra-based quantum TCA algorithm and the variational quantum TCA algorithm, are presented. The algorithmic complexity of the linear-algebra-based quantum TCA algorithm is $O(poly(log(n_s+n_t)))$, where ns and nt are input sample size. Compared with the corresponding classical algorithm, the linear-algebra-based quantum TCA can be performed on a universal quantum computer with exponential speedup in the number of given samples. Finally, the variational quantum TCA algorithm based on a quantum-classical hybrid procedure, that can be implemented on the near term quantum devices, is proposed.},
+@unpublished{he2019quantum,
+  title={Quantum transfer component analysis for domain adaptation},
+  author={He, Xi and Lyu, Chufan and Hsieh, Min-Hsiu and Wang, Xiaoting},
+  journal={arXiv preprint arXiv:1912.09113},
+  year={2019},
+  doi = {1912.09113},
+  abstract = {Domain adaptation, a crucial sub-field of transfer learning, aims to utilize known knowledge of one data set to accomplish tasks on another data set. In this paper, we perform one of the most representative domain adaptation algorithms, transfer component analysis (TCA), on quantum devices. Two different quantum implementations of this transfer learning algorithm; namely, the linear-algebra-based quantum TCA algorithm and the variational quantum TCA algorithm, are presented. The algorithmic complexity of the linear-algebra-based quantum TCA algorithm is &#36;O(poly(\log(n_s+n_t)))&#36;, where &#36;n_s&#36; and &#36;n_t&#36; are input sample size. Compared with the corresponding classical algorithm, the linear-algebra-based quantum TCA can be performed on a universal quantum computer with exponential speedup in the number of given samples. Finally, the variational quantum TCA algorithm based on a quantum-classical hybrid procedure, that can be implemented on the near term quantum devices, is proposed.}
 }
 
 @article{he2020quantum,
@@ -61,4 +44,207 @@
   publisher={APS},
   doi = {10.1103/PhysRevA.102.032410},
   abstract={The correlation alignment algorithm (CORAL), a representative domain adaptation algorithm, decorrelates and aligns a labeled source domain dataset to an unlabeled target domain dataset to minimize the domain shift such that a classifier can be applied to predict the target domain labels. In this paper, we implement the CORAL on quantum devices by two different methods. One method utilizes quantum basic linear algebra subroutines to implement the CORAL with exponential speedup in the number and dimension of the given data samples. The other method is achieved through a variational hybrid quantum-classical procedure. In addition, the numerical experiments of the CORAL with three different types of data sets, namely, the synthetic data, the synthetic-Iris data, and the handwritten digit data, are presented to evaluate the performance of our paper. The simulation results prove that the variational quantum correlation alignment algorithm can achieve competitive performance compared with the classical CORAL.},
+}
+
+@article{he2020quantum,
+  title={Quantum subspace alignment for domain adaptation},
+  author={He, Xi},
+  journal={Physical Review A},
+  volume={102},
+  number={6},
+  pages={062403},
+  year={2020},
+  publisher={APS},
+  doi = {10.1103/PhysRevA.102.062403},
+  abstract= {Domain adaptation (DA) is used for adaptively obtaining labels of an unprocessed data set with a given related, but different labeled data set. Subspace alignment (SA), a representative DA algorithm, attempts to find a linear transformation to align the subspaces of the two different data sets. The classifier trained on the aligned labeled data set can be transferred to the unlabeled data set to predict the target labels. In this paper, two quantum versions of the SA are proposed to implement the DA procedure on quantum devices. One method, the quantum subspace alignment algorithm (QSA), can achieve quadratic speedup in the number and dimension of given samples. The other method, the variational quantum subspace alignment algorithm (VQSA), can be implemented on near-term quantum devices through a variational hybrid quantum-classical procedure. The results of the numerical experiments on different types of data sets demonstrate that the VQSA can achieve high accuracy in dealing with DA tasks.}
+}
+
+@article{jin2020query,
+  title={A query-based quantum eigensolver},
+  author={Jin, Shan and Wu, Shaojun and Zhou, Guanyu and Li, Ying and Li, Lvzhou and Li, Bo and Wang, Xiaoting},
+  journal={Quantum Engineering},
+  volume={2},
+  number={3},
+  pages={e49},
+  year={2020},
+  publisher={Wiley Online Library},
+  doi = {10.1002/que2.49},
+  abstract= {Solving eigenvalue problems is crucially important for both classical and quantum applications. Many well-known numerical eigensolvers have been developed, including the QR and the power methods for classical computers, as well as the quantum phase estimation (QPE) method and the variational quantum eigensolver for quantum computers. In this work, we present a different type of quantum method that uses fixed-point quantum search to solve Type II eigenvalue problems. This method serves as an important complement to the QPE method, which is a Type I eigensolver. We show that the quantum oracle of our query-based method can be efficiently constructed from the QPE gate, which is crucial for analyzing the total gate complexity of our method. In addition, compared with the QPE method, our query-based method achieves a quadratic speedup in solving Type II problems. As two applications, we then discuss how to apply our method to solve Type II eigenvalue problems for the Heisenberg model and the hydrogen molecule.}
+}
+
+@unpublished{wu2020quantum,
+  title={Quantum reinforcement learning in continuous action space},
+  author={Wu, Shaojun and Jin, Shan and Wen, Dingding and Han, Donghong and Wang, Xiaoting},
+  journal={arXiv preprint arXiv:2012.10711},
+  year={2020},
+  doi = {2012.10711},
+  abstract= {Quantum reinforcement learning (QRL) is one promising algorithm proposed for near-term quantum devices. Early QRL proposals are effective at solving problems in discrete action space, but often suffer from the curse of dimensionality in the continuous domain due to discretization. To address this problem, we propose a quantum Deep Deterministic Policy Gradient algorithm that is efficient at solving both classical and quantum sequential decision problems in the continuous domain. As an application, our method can solve the quantum state-generation problem in a single shot: it only requires a one-shot optimization to generate a model that outputs the desired control sequence for arbitrary target state. In comparison, the standard quantum control method requires optimizing for each target state. Moreover, our method can also be used to physically reconstruct an unknown quantum state.}
+}
+
+@unpublished{sun2020exponential,
+  title={Exponential enhancement of quantum metrology using continuous variables},
+  author={Sun, Li and He, Xi and You, Chenglong and Lv, Chufan and Li, Bo and Lloyd, Seth and Wang, Xiaoting},
+  journal={arXiv preprint arXiv:2004.01216},
+  year={2020},
+  doi = {2004.01216},
+  abstract = {Coherence time is an important resource to generate enhancement in quantum metrology. In this work, based on continuous-variable models, we propose a new design of the signal-probe Hamiltonian which generates an exponential enhancement of measurement sensitivity. The key idea is to include into the system an ancilla that does not couple directly to the signal. An immediate benefit of such design is one can expand quantum Fisher information(QFI) into a power series in time, making it possible to achieve a higher-order time scaling in QFI. Specifically, one can design the interaction for a qubit-oscillator Ramsey interferometer to achieve a quartic time scaling, based on which, one can further design a chain of coupled harmonic oscillators to achieve an exponential time scaling in QFI. Our results show that linear scaling in both time and the number of coupling terms is sufficient to obtain exponential enhancement. Such exponential advantage is closely related to the characteristic commutation relations of quadratures.}
+}
+
+@article{li2022quantum,
+  title={Quantum spectral clustering algorithm for unsupervised learning},
+  author={Li, Qingyu and Huang, Yuhan and Jin, Shan and Hou, Xiaokai and Wang, Xiaoting},
+  journal={Science China Information Sciences},
+  volume={65},
+  number={10},
+  pages={200504},
+  year={2022},
+  publisher={Springer},
+  doi ={10.1007/s11432-022-3492-x},
+  abstract = {Clustering is one of the most crucial problems in unsupervised learning, and the well-known k-means algorithm can be implemented on a quantum computer with a significant speedup. However, for the clustering problems that cannot be solved using the k-means algorithm, a powerful method called spectral clustering is used. In this study, we propose a circuit design to implement spectral clustering on a quantum processor with substantial speedup by initializing the processor into a maximally entangled state and encoding the data information into an efficiently simulatable Hamiltonian. Compared to the established quantum k-means algorithms, our method does not require a quantum random access memory or a quantum adiabatic process. It relies on an appropriate embedding of quantum phase estimation into Grover’s search to gain the quantum speedup. Simulations demonstrate that our method effectively solves clustering problems and is an important supplement to quantum k-means algorithm for unsupervised learning.}
+}
+
+@article{huang2022robust,
+  title={Robust resource-efficient quantum variational ansatz through an evolutionary algorithm},
+  author={Huang, Yuhan and Li, Qingyu and Hou, Xiaokai and Wu, Rebing and Yung, Man-Hong and Bayat, Abolfazl and Wang, Xiaoting},
+  journal={Physical Review A},
+  volume={105},
+  number={5},
+  pages={052414},
+  year={2022},
+  publisher={APS},
+  doi = {10.1103/PhysRevA.105.052414},
+  abstract = {Variational quantum algorithms (VQAs) are promising methods to demonstrate quantum advantage on near-term devices as the required resources are divided between a quantum simulator and a classical optimizer. As such, designing a VQA which is resource-efficient and robust against noise is a key factor to achieve a potential advantage with the existing noisy quantum simulators. It turns out that a fixed VQA circuit design, such as the widely used hardware-efficient ansatz, is not necessarily robust against imperfections. In this work, we propose a genome-length-adjustable evolutionary algorithm to design a robust VQA circuit that is optimized over variations of both circuit ansatz and gate parameters, without any prior assumptions on circuit structure or depth. Remarkably, our method not only generates a noise-effect-minimized circuit with shallow depth, but also accelerates the classical optimization by substantially reducing the number of parameters. In this regard, the optimized circuit is far more resource-efficient with respect to both quantum and classical resources. As applications, based on two typical error models in VQA, we apply our method to calculate the ground energy of the hydrogen and the water molecules as well as the Heisenberg model. Simulations suggest that, compared with conventional hardware-efficient ansatz, our circuit-structure-tunable method can generate circuits apparently more robust against both coherent and incoherent noise and hence is more likely to be implemented on near-term devices.}
+}
+
+@article{han2022density,
+  title={Density matrix reconstruction using non-negative matrix product states},
+  author={Han, Donghong and Guo, Chu and Wang, Xiaoting},
+  journal={Physical Review A},
+  volume={106},
+  number={4},
+  pages={042435},
+  year={2022},
+  publisher={APS},
+  doi = {10.1103/PhysRevA.106.042435},
+  abstract = {Quantum state tomography is a key technique for quantum information processing but is challenging due to the exponential growth of its complexity with the system size. In this work we propose an algorithm which iteratively finds the best non-negative matrix product state approximation based on a set of measurement outcomes whose size does not necessarily grow exponentially. Compared to the tomography method based on neural network states, our scheme utilizes a so-called tensor train representation that allows straightforward recovery of the unknown density matrix in the matrix product operator form. As applications, the effectiveness of our algorithm is numerically demonstrated to reconstruct the ground state of the XXZ spin chain under depolarizing noise.}
+}
+
+@unpublished{zhong2022quantum,
+  title={Quantum state tomography inspired by language modeling},
+  author={Zhong, Lu and Guo, Chu and Wang, Xiaoting},
+  journal={arXiv preprint arXiv:2212.04940},
+  year={2022},
+  doi = {2212.04940},
+  abstract = {Quantum state tomography is an elementary tool to fully characterize an unknown quantum state. As the quantum hardware scales up in size, the standard quantum state tomography becomes increasingly challenging due to its exponentially growing complexity. In this work, we propose a scalable solution by considering state tomography as a language modeling task, where the unknown quantum state is treated as an unknown language, the correlation of the quantum state is interpreted as the semantic information specific to this language, and the measurement outcomes are simply the text instances generated from the language. Based on a customized transformer model from language modeling, we demonstrate that our method can accurately reconstruct prototypical pure and mixed quantum states using less samples than state-of-the-art methods. More importantly, our method can reconstruct a class of similar states simultaneously, in comparison with the existing neural network methods that need to train a model for each unknown state.}
+}
+
+@article{hou2023duplication,
+  title={A duplication-free quantum neural network for universal approximation},
+  author={Hou, Xiaokai and Zhou, Guanyu and Li, Qingyu and Jin, Shan and Wang, Xiaoting},
+  journal={Science China Physics, Mechanics \& Astronomy},
+  volume={66},
+  number={7},
+  pages={270362},
+  year={2023},
+  publisher={Springer},
+  doi = {10.1007/s11433-023-2098-8},
+  abstract = {Different from the concept of universal computation, the universality of a quantum neural network focuses on the ability to approximate arbitrary functions and is an important guarantee for effectiveness. However, conventional approaches of constructing a universal quantum neural network may result in a huge quantum register that is challenging to implement due to noise on a near-term device. To address this, we propose a simple design of a duplication-free quantum neural network whose universality can be rigorously proven. Specifically, instead of using multiple duplicates of the quantum register, our method relies on a single quantum register combined with multiple activation functions to create nonlinearity and achieve universality. Accordingly, our proposal requires significantly fewer qubits with shallower circuits, and hence substantially reduces the resource overhead and the noise effect. In addition, simulations demonstrate that our universality design is able to achieve a better learning accuracy in the presence of noise, illustrating a great potential in solving larger-scale learning problems on near-term devices.}
+}
+
+@inproceedings{wu2023quantum,
+  title={Quantum State Generation Via Deep Reinforcement Learning},
+  author={Wu, Shaojun and Jin, Shan and Wang, Xiaoting},
+  booktitle={2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)},
+  pages={390--395},
+  year={2023},
+  organization={IEEE},
+  doi = {10.1109/SMC53992.2023.10394265},
+  abstract = {The quantum state generation problem is a major research goal of quantum control and quantum variational algorithms, which use iterative optimization methods to evolve the initial state to the target state. The Twin Delayed Deep Deterministic Policy (TD3) algorithm in reinforcement learning achieves high learning efficiency and better stability in continuous control tasks. Here, using the TD3, we propose a new quantum state preparation method that does not require case-by-case optimization, to find a suitable evolution path to obtain the desired state. Specifically, we input the initial state into the trained actor-network, which can output the parameters of the unitary gates step by step, thus gradually evolving the initial state to the fixed quantum state. According to the reversibility of the unitary transformation, we can obtain a sequence of unitary gates to evolve the fixed state to the desired state. To verify the effectiveness of the algorithm, we perform simulations for one-qubit, two-qubit, and four-qubit cases, and the results show that the trained actor-network can provide appropriate unitary transformations to obtain the fixed state.}
+}
+
+@article{li2024ensemble,
+  title={Ensemble-learning error mitigation for variational quantum shallow-circuit classifiers},
+  author={Li, Qingyu and Huang, Yuhan and Hou, Xiaokai and Li, Ying and Wang, Xiaoting and Bayat, Abolfazl},
+  journal={Physical Review Research},
+  volume={6},
+  number={1},
+  pages={013027},
+  year={2024},
+  publisher={APS},
+  doi ={10.1103/PhysRevResearch.6.013027},
+  abstract = {Classification is one of the main applications of supervised learning. Recent advancements in developing quantum computers have opened a new possibility for machine learning on such machines. Due to the noisy performance of near-term quantum computers, error mitigation techniques are essential for extracting meaningful data from noisy raw experimental measurements. Here, we propose two ensemble-learning error mitigation methods, namely, bootstrap aggregating and adaptive boosting, which can significantly enhance the performance of variational quantum classifiers for both classical and quantum datasets. The idea is to combine several weak classifiers, each implemented on a shallow noisy quantum circuit, to make a strong one with high accuracy. While both of our protocols substantially outperform error-mitigated primitive classifiers, the adaptive boosting shows better performance than the bootstrap aggregating. The protocols have been exemplified for classical handwriting digits as well as quantum phase discrimination of a symmetry-protected topological Hamiltonian, in which we observe a significant improvement in accuracy. Our ensemble-learning methods provide a systematic way of utilizing shallow circuits to solve complex classification problems.}
+}
+
+@article{yang2024maximizing,
+  title={Maximizing quantum-computing expressive power through randomized circuits},
+  author={Yang, Yingli and Zhang, Zongkang and Wang, Anbang and Xu, Xiaosi and Wang, Xiaoting and Li, Ying},
+  journal={Physical Review Research},
+  volume={6},
+  number={2},
+  pages={023098},
+  year={2024},
+  publisher={APS},
+  doi = {10.1103/PhysRevResearch.6.023098},
+  abstract = {In the noisy intermediate-scale quantum era, variational quantum algorithms (VQAs) have emerged as a promising avenue to obtain quantum advantage. However, the success of VQAs depends on the expressive power of parametrized quantum circuits, which is constrained by the limited gate number and the presence of barren plateaus. In this paper, we propose and numerically demonstrate an approach for VQAs, utilizing randomized quantum circuits to generate the variational wave function. We parametrize the distribution function of these random circuits using artificial neural networks and optimize it to find the solution. This random-circuit approach presents a trade-off between maximizing the expressive power of the variational wave function and minimizing the associated time cost, specifically the sampling cost of quantum circuits. Given a fixed gate number, we can systematically increase the expressive power by extending the quantum-computing time. With a sufficiently large permissible time cost, the variational wave function can approximate any quantum state with arbitrary accuracy. Furthermore, we establish explicit relationships between expressive power, time cost, and gate number for variational quantum eigensolvers. These results highlight the promising potential of the random-circuit approach in achieving a high expressive power in quantum computing.}
+}
+
+@article{cui2024quantum,
+  title={Quantum advantages for image filtering on images with efficient encoding and lower-bounded signal-to-noise ratio},
+  author={Cui, Zidong and Jin, Shan and Sone, Akira and Wang, Xiaoting},
+  journal={Science China Physics, Mechanics \& Astronomy},
+  volume={67},
+  number={9},
+  pages={290362},
+  year={2024},
+  publisher={Springer},
+  doi = {10.1007/s11433-024-2391-8},
+  abstract = {Quantum image processing has long been a fascinating field, but establishing the existence of quantum speedup for all images remains challenging. In this study, we aim to identify a subset of images for which a quantum algorithm can be developed with a guaranteed advantage. Specifically, we present a quantum image filtering algorithm that exhibits an exponential speedup for efficiently encoded images with a lower-bounded signal-to-noise ratio. Our approach relies on a fixed-point Grover’s search to emulate the effect of Hadamard multiplication with the filtering function. To demonstrate its effectiveness, we apply our method to three typical filtering problems. Additionally, we emphasize the significance of the efficient-encoding assumption by illustrating that the quantum speedup may diminish for images lacking efficient encoding. Our work underscores the importance of exploring image types and features to realize potential quantum advantages in image processing.}
+}
+
+@article{zhu2024quantum,
+  title={Quantum computing and machine learning on an integrated photonics platform},
+  author={Zhu, Huihui and Lin, Hexiang and Wu, Shaojun and Luo, Wei and Zhang, Hui and Zhan, Yuancheng and Wang, Xiaoting and Liu, Aiqun and Kwek, Leong Chuan},
+  journal={Information},
+  volume={15},
+  number={2},
+  pages={95},
+  year={2024},
+  publisher={MDPI},
+  doi = {10.3390/info15020095},
+  abstract = {Integrated photonic chips leverage the recent developments in integrated circuit technology, along with the control and manipulation of light signals, to realize the integration of multiple optical components onto a single chip. By exploiting the power of light, integrated photonic chips offer numerous advantages over traditional optical and electronic systems, including miniaturization, high-speed data processing and improved energy efficiency. In this review, we survey the current status of quantum computation, optical neural networks and the realization of some algorithms on integrated optical chips.}
+}
+
+@inproceedings{tian2024high,
+  title={High-performance and efficient decoding of surface codes: an iterative reweighted union-find approach},
+  author={Tian, Yi and Zheng, Yicong and Wang, Xiaoting},
+  booktitle={Ninth International Symposium on Advances in Electrical, Electronics, and Computer Engineering (ISAEECE 2024)},
+  volume={13291},
+  pages={1298--1303},
+  year={2024},
+  organization={SPIE},
+  doi = {10.1117/12.3034384},
+  abstract = {
+Efficient and accurate decoders are essential for quantum error correction. Surface codes are due to their high error threshold and scalability. The Minimum Weight Perfect Matching (MWPM) decoder and Union-Find (UF) decoder are the two most commonly used decoders for quantum surface codes, known for their accuracy and decoding speed, respectively. In this paper, we design an iteratively reweighted UF (IRUF) decoder considering the correlation of bit flip error and phase flip error in the depolarization noise channel. It has higher decoding accuracy than the MWPM decoder and UF decoder, and the decoding threshold is 11.5% and 6.3% higher respectively. Notably the IRUF decoder almost retains the same linear time complexity as the UF decoder, which is far better than the MWPM decoder.}
+}
+
+@inproceedings{yang2024quantum,
+  title={Quantum Neural Networks as Universal Function Approximators: Theory and Implementation},
+  author={Yang, Zhen and Hou, Xiaokai and Wang, Xiaoting},
+  booktitle={2024 14th Asian Control Conference (ASCC)},
+  pages={1952--1956},
+  year={2024},
+  organization={IEEE},
+  url = {https://ieeexplore.ieee.org/abstract/document/10665638},
+  abstract = {Quantum neural networks combine the principles of neural networks and quantum computing, aiming to solve conventional computing problems with the special advantages of quantum computing. Although it has shown potential in some specific scenarios, its applicability to more general problems and the efficient encoding of classical data into quantum systems are still challenges. This paper proposes a hybrid classical-quantum neural network model based on end-to-end encoding method, which can approximate any continuous function and is also available in experiment. The universality of proposed model is rigorously proved. This model can also achieve an accuracy of over 95% on the mini-batch MNIST dataset through numerical simulation. These results not only validate the effectiveness of quantum neural networks in addressing classical problems but also contribute to further exploration of the potential advantages of quantum neural networks.}
+}
+
+@inproceedings{guo2024efficient,
+  title={An Efficient Quantum Monte Carlo Method for Reducing Circuit Complexity},
+  author={Guo, Zengyan and Yang, Yingli and Hou, Xiaokai and Wang, Xiaoting},
+  booktitle={2024 14th Asian Control Conference (ASCC)},
+  pages={1946--1951},
+  year={2024},
+  organization={IEEE},
+  url = {https://ieeexplore.ieee.org/abstract/document/10665412},
+  abstract = {Quantum noise poses a severe chanllenge for variational quantum eigensolver (VQE) due to the unavoidable noise accumulation effect. To relieve the detrimental effect, shallow quantum circuit is prefered but limites the effectiveness of VQE. To address this problem, we utilize a quantum Monte Carlo-based method to effectively reduce the quantum circuit complexity of VQE, while enhancing its performance. Our simulation results demonstrate that our method can effectively solve typical 1D and 2D Heisenberg models. Furthermore, our method significantly outperforms the VQE based on conventional ansatz in terms of the circuit complexity when achieving the similar performance.}
 }

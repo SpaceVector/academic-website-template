@@ -22,5 +22,5 @@ permalink: /Publications/
 
 <div class="jumbotron">
 ## **Publications**
-{% bibliography --query @unpublished @article  %}
+{% bibliography --query @unpublished @article @inproceedings %}
 </div>

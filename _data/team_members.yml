@@ -1,41 +1,41 @@
 - name: Jin Shan
-  photo: rock.jpg
+  photo: jinshan.jpg
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Wu Shaojun
-  photo: rock.jpg
+  photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Hao Yajie
-  photo: rock.jpg
+  photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Yang Zhen
-  photo: rock.jpg
+  photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Wu Yinjie
-  photo: rock.jpg
+  photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Guo Zengyan
-  photo: rock.jpg
+  photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Ye Xuan
-  photo: rock.jpg
+  photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
@@ -47,13 +47,13 @@
   # website: https://website.com
 
 - name: Feng Yang
-  photo: rock.jpg
+  photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Pan Xiangchen
-  photo: rock.jpg
+  photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
@@ -65,7 +65,7 @@
   # website: https://website.com
 
 - name: Tan Youwei
-  photo: rock.jpg
+  photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
@@ -73,5 +73,5 @@
 
 
 - name: "This could be you !"
-  photo: rock.jpg
-  info: See <a href="www">openings</a> for more info
+  photo: invite.png
+  info: See <a href="/vacancies">openings</a> for more info
