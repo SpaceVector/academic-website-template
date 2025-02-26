@@ -29,9 +29,12 @@ contact: >
 nav_pages:
   # - name: About
   - name: Team
+    zh_name: 团队
   - name: Publications
+    zh_name: 成果
   # - name: talks
   - name: research
+    zh_name: 研究
   # - name: software
   # - name: teaching
   # - name: blogs

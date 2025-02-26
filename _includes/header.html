@@ -1,3 +1,5 @@
+{% assign path_segments = page.url | split: '/' %}
+{% assign is_zh = path_segments[1] == 'zh' %}
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">
      <!-- <img src="{{ site.url }}{{ site.baseurl }}/favicon.ico" width="30" height="30" style="margin-right:5px" class="d-inline-block align-top" alt=""> -->
@@ -9,9 +11,15 @@
 
     <div class="collapse navbar-collapse" id="navbarColor02">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{{ site.url }}{{ site.baseurl }}/">Home</a>
-            {% for page in site.nav_pages %}       
-                <a class="nav-item nav-link" href="{{ site.url }}{{ site.baseurl }}/{{page.name}}">{{page.name | capitalize }}</a>
+            <a class="nav-item nav-link" href="{% if is_zh %}/zh/{% else %}/{% endif %}">
+                {% if is_zh %}首页{% else %}Home{% endif %}
+            </a>
+            <!-- 处理其他导航项 -->
+            {% for page in site.nav_pages %}
+                <a class="nav-item nav-link" 
+                    href="{% if is_zh %}/zh/{{ page.name }}{% else %}/{{ page.name }}{% endif %}">
+                    {% if is_zh %}{{ page.zh_name }}{% else %}{{ page.name | capitalize }}{% endif %}
+                </a>
             {% endfor %}
         </div>
          <!-- 右侧语言切换按钮 -->
@@ -22,18 +30,15 @@
 </nav>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const languageToggle = document.getElementById('languageToggle');
+document.addEventListener('DOMContentLoaded', () => {
+    const toggleBtn = document.getElementById('languageToggle');
     const currentPath = window.location.pathname;
-    const [_, currentLang, ...pathSegments] = currentPath.split('/');
     
     // 自动检测当前语言状态
-    const isZH = currentLang === 'zh';
-    languageToggle.textContent = isZH ? 'EN' : '中文';
+    const isZH = currentPath.startsWith('/zh/') || currentPath === '/zh';
+    toggleBtn.textContent = isZH ? 'EN' : '中文';
 
-    languageToggle.addEventListener('click', function(e) {
-        e.preventDefault();
-        
+    toggleBtn.addEventListener('click', () => {
         // 保留查询参数和哈希
         const search = window.location.search;
         const hash = window.location.hash;
@@ -41,19 +46,82 @@ document.addEventListener('DOMContentLoaded', function() {
         // 构建新路径
         let newPath;
         if (isZH) {
-            // 移除/zh前缀
-            newPath = pathSegments.join('/');
+            // 移除/zh前缀 (兼容根路径)
+            newPath = currentPath.replace(/^\/zh(\/|$)/, '/');
         } else {
-            // 添加/zh前缀
-            newPath = ['zh', ...pathSegments].join('/');
+            // 添加/zh前缀 (兼容根路径)
+            newPath = currentPath.startsWith('/') 
+                    ? `/zh${currentPath}`
+                    : `/zh/${currentPath}`;
         }
-
-        // 处理根路径特殊情况
-        if (newPath === '') newPath = '/';
-        if (!newPath.startsWith('/')) newPath = '/' + newPath;
         
-        // 拼接完整URL
+        // 处理空路径和多余斜杠
+        newPath = newPath.replace(/\/+/g, '/').replace(/\/$/, '') || '/';
+        
+        // 跳转并保留参数
         window.location.href = `${newPath}${search}${hash}`;
     });
+});
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    // 语言状态检测函数
+    const isZHPage = () => window.location.pathname.startsWith('/zh/') || window.location.pathname === '/zh';
+    
+    // 链接重写函数
+    const rewriteLinks = () => {
+        const isZH = isZHPage();
+        document.querySelectorAll('[data-navlink]').forEach(link => {
+            const rawHref = link.getAttribute('data-raw') || link.href;
+            
+            // 保存原始链接 (首次运行时)
+            if (!link.hasAttribute('data-raw')) {
+                link.setAttribute('data-raw', rawHref);
+            }
+
+            // 提取路径部分 (忽略域名)
+            const url = new URL(rawHref);
+            let path = url.pathname;
+
+            // 路径重写逻辑
+            if (isZH && !path.startsWith('/zh')) {
+                path = `/zh${path === '/' ? '' : path}`;
+            } else if (!isZH && path.startsWith('/zh')) {
+                path = path.replace(/^\/zh/, '') || '/';
+            }
+
+            // 更新链接 (保留查询参数和哈希)
+            link.href = `${path}${url.search}${url.hash}`;
+        });
+    };
+
+    // 初始化链接重写
+    rewriteLinks();
+
+    // 监听语言切换按钮点击
+    document.getElementById('languageToggle').addEventListener('click', () => {
+        // 先执行路径切换逻辑
+        const currentPath = window.location.pathname;
+        const isZH = isZHPage();
+        let newPath = currentPath;
+
+        if (isZH) {
+            newPath = currentPath.replace(/^\/zh(\/|$)/, '/') || '/';
+        } else {
+            newPath = currentPath.startsWith('/') 
+                    ? `/zh${currentPath}`
+                    : `/zh/${currentPath}`;
+        }
+
+        // 立即重写导航链接 (解决跳转前状态不一致问题)
+        rewriteLinks();
+        
+        // 同步更新浏览器历史 (可选)
+        window.history.replaceState({}, '', newPath);
+    });
+
+    // 监听浏览器前进/后退
+    window.addEventListener('popstate', rewriteLinks);
 });
 </script>
