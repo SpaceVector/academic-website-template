@@ -14,5 +14,46 @@
                 <a class="nav-item nav-link" href="{{ site.url }}{{ site.baseurl }}/{{page.name}}">{{page.name | capitalize }}</a>
             {% endfor %}
         </div>
+         <!-- 右侧语言切换按钮 -->
+         <div class="navbar-nav ms-auto">
+            <a class="nav-item nav-link" id="languageToggle" href="#"></a>
+        </div>
     </div>
 </nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const languageToggle = document.getElementById('languageToggle');
+    const currentPath = window.location.pathname;
+    const [_, currentLang, ...pathSegments] = currentPath.split('/');
+    
+    // 自动检测当前语言状态
+    const isZH = currentLang === 'zh';
+    languageToggle.textContent = isZH ? 'EN' : '中文';
+
+    languageToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // 保留查询参数和哈希
+        const search = window.location.search;
+        const hash = window.location.hash;
+        
+        // 构建新路径
+        let newPath;
+        if (isZH) {
+            // 移除/zh前缀
+            newPath = pathSegments.join('/');
+        } else {
+            // 添加/zh前缀
+            newPath = ['zh', ...pathSegments].join('/');
+        }
+
+        // 处理根路径特殊情况
+        if (newPath === '') newPath = '/';
+        if (!newPath.startsWith('/')) newPath = '/' + newPath;
+        
+        // 拼接完整URL
+        window.location.href = `${newPath}${search}${hash}`;
+    });
+});
+</script>
