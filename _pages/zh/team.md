@@ -2,7 +2,7 @@
 title: "Team"
 layout: gridlay
 sitemap: false
-permalink: /Team/
+permalink: /zh/Team/
 ---
 
 <!-- ## Team
@@ -11,7 +11,7 @@ permalink: /Team/
 
 ## PI
 
-{% for member in site.data.pi %}
+{% for member in site.data.pi_zh %}
 
 <div class="jumbotron">
 <div class="row">
@@ -80,7 +80,7 @@ permalink: /Team/
 
 <div class='jumbotron'>
 {% assign number_printed = 0 %}
-{% for member in site.data.team_members %}
+{% for member in site.data.team_members_zh %}
 
 {% assign even_odd = number_printed | modulo: 2 %}
 

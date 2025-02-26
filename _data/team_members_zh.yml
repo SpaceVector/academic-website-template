@@ -1,70 +1,70 @@
-- name: Shan Jin
+- name: 金睒
   photo: jinshan.jpg
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Shaojun Wu
+- name: 吴绍君
   photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Yajie Hao
+- name: 郝亚杰
   photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Zhen Yang
+- name: 杨振
   photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Yinjie Wu
+- name: 吴银杰
   photo: rock.png
   info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Zengyan Guo
+- name: 郭增岩
   photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Xuan Ye
+- name: 叶璇
   photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Liang Yu
+- name: 于亮
   photo: yuliang.jpg
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Yang Feng
+- name: 冯阳
   photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Xiangchen Pan
+- name: 潘相臣
   photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Jianhuai Qin
+- name: 秦健淮
   photo: qinjianhuai.jpg
   info: Master. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
-- name: Youwei Tan
+- name: 谭又维
   photo: rock.png
   info: Master. student
   email: exampleemail@gmail.com
@@ -72,6 +72,6 @@
 
 
 
-- name: "This could be you !"
+- name: "欢迎你的加入！"
   photo: invite.png
   # info: See <a href="/vacancies">openings</a> for more info
