@@ -1,127 +1,116 @@
 {% assign path_segments = page.url | split: '/' %}
 {% assign is_zh = path_segments[1] == 'zh' %}
+
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">
-     <!-- <img src="{{ site.url }}{{ site.baseurl }}/favicon.ico" width="30" height="30" style="margin-right:5px" class="d-inline-block align-top" alt=""> -->
-      {{ site.title | escape }}
+        {{ site.title | escape }}
     </a>
-    <button class="toggler navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02" aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+    
+    <!-- 导航栏折叠按钮 -->
+    <button class="toggler navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02">
         <span class="navbar-toggler-icon"></span>
     </button>
 
+    <!-- 导航项容器 -->
     <div class="collapse navbar-collapse" id="navbarColor02">
         <div class="navbar-nav mr-auto">
-            <a class="nav-item nav-link" href="{% if is_zh %}/zh/{% else %}/{% endif %}">
-                {% if is_zh %}首页{% else %}Home{% endif %}
-            </a>
-            <!-- 处理其他导航项 -->
-            {% for page in site.nav_pages %}
+            <!-- 动态生成导航链接 -->
                 <a class="nav-item nav-link" 
-                    href="{% if is_zh %}/zh/{{ page.name }}{% else %}/{{ page.name }}{% endif %}">
-                    {% if is_zh %}{{ page.zh_name }}{% else %}{{ page.name | capitalize }}{% endif %}
+                    data-navlink 
+                    href="{% if is_zh %}/zh/{% else %}/{% endif %}"
+                    data-raw="/"
+                    data-en="Home"
+                    data-zh="首页">
+                    {% if is_zh %}首页{% else %}Home{% endif %}
                 </a>
+            {% for page in site.nav_pages %}
+            <a class="nav-item nav-link" 
+                data-navlink
+                href="{% if is_zh %}/zh/{{ page.name }}{% else %}/{{ page.name }}{% endif %}"
+                data-raw="/{{ page.name }}"
+                data-en="{{ page.name | capitalize }}"
+                data-zh="{{ page.zh_name }}">
+                {% if is_zh %}{{ page.zh_name }}{% else %}{{ page.name | capitalize }}{% endif %}
+            </a>
             {% endfor %}
         </div>
-         <!-- 右侧语言切换按钮 -->
-         <div class="navbar-nav ms-auto">
-            <a class="nav-item nav-link" id="languageToggle" href="#"></a>
+        
+        <!-- 语言切换按钮 -->
+        <div class="navbar-nav ms-auto">
+            <a class="nav-item nav-link" id="languageToggle" role="button"></a>
         </div>
     </div>
 </nav>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const toggleBtn = document.getElementById('languageToggle');
-    const currentPath = window.location.pathname;
-    
-    // 自动检测当前语言状态
-    const isZH = currentPath.startsWith('/zh/') || currentPath === '/zh';
-    toggleBtn.textContent = isZH ? 'EN' : '中文';
-
-    toggleBtn.addEventListener('click', () => {
-        // 保留查询参数和哈希
-        const search = window.location.search;
-        const hash = window.location.hash;
-        
-        // 构建新路径
-        let newPath;
-        if (isZH) {
-            // 移除/zh前缀 (兼容根路径)
-            newPath = currentPath.replace(/^\/zh(\/|$)/, '/');
-        } else {
-            // 添加/zh前缀 (兼容根路径)
-            newPath = currentPath.startsWith('/') 
-                    ? `/zh${currentPath}`
-                    : `/zh/${currentPath}`;
+    // 通用工具函数
+    const pathUtils = {
+        normalize: (path) => path.replace(/\/+/g, '/').replace(/\/$/, '') || '/',
+        isZH: (path) => path.startsWith('/zh/') || path === '/zh',
+        toggleZH: (path) => {
+            const cleanPath = pathUtils.normalize(path);
+            return pathUtils.isZH(cleanPath) 
+                ? cleanPath.replace(/^\/zh(\/|$)/, '/') 
+                : `/zh${cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`}`;
         }
-        
-        // 处理空路径和多余斜杠
-        newPath = newPath.replace(/\/+/g, '/').replace(/\/$/, '') || '/';
-        
-        // 跳转并保留参数
-        window.location.href = `${newPath}${search}${hash}`;
-    });
-});
-</script>
-
-<script>
-document.addEventListener('DOMContentLoaded', () => {
-    // 语言状态检测函数
-    const isZHPage = () => window.location.pathname.startsWith('/zh/') || window.location.pathname === '/zh';
-    
-    // 链接重写函数
-    const rewriteLinks = () => {
-        const isZH = isZHPage();
-        document.querySelectorAll('[data-navlink]').forEach(link => {
-            const rawHref = link.getAttribute('data-raw') || link.href;
-            
-            // 保存原始链接 (首次运行时)
-            if (!link.hasAttribute('data-raw')) {
-                link.setAttribute('data-raw', rawHref);
-            }
-
-            // 提取路径部分 (忽略域名)
-            const url = new URL(rawHref);
-            let path = url.pathname;
-
-            // 路径重写逻辑
-            if (isZH && !path.startsWith('/zh')) {
-                path = `/zh${path === '/' ? '' : path}`;
-            } else if (!isZH && path.startsWith('/zh')) {
-                path = path.replace(/^\/zh/, '') || '/';
-            }
-
-            // 更新链接 (保留查询参数和哈希)
-            link.href = `${path}${url.search}${url.hash}`;
-        });
     };
 
-    // 初始化链接重写
-    rewriteLinks();
+    // 核心控制器
+    const languageManager = {
+        init() {
+            this.bindToggleButton();
+            this.rewriteNavigationLinks();
+            this.setupHistoryListener();
+        },
 
-    // 监听语言切换按钮点击
-    document.getElementById('languageToggle').addEventListener('click', () => {
-        // 先执行路径切换逻辑
-        const currentPath = window.location.pathname;
-        const isZH = isZHPage();
-        let newPath = currentPath;
+        bindToggleButton() {
+            const toggleBtn = document.getElementById('languageToggle');
+            const currentPath = window.location.pathname;
+            
+            toggleBtn.textContent = pathUtils.isZH(currentPath) ? 'EN' : '中文';
+            toggleBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                this.handleLanguageToggle();
+            });
+        },
 
-        if (isZH) {
-            newPath = currentPath.replace(/^\/zh(\/|$)/, '/') || '/';
-        } else {
-            newPath = currentPath.startsWith('/') 
-                    ? `/zh${currentPath}`
-                    : `/zh/${currentPath}`;
+        handleLanguageToggle() {
+            const currentPath = window.location.pathname;
+            const newPath = pathUtils.toggleZH(currentPath);
+            
+            this.rewriteNavigationLinks(true); // 强制预更新链接
+            window.location.href = `${newPath}${window.location.search}${window.location.hash}`;
+        },
+
+        rewriteNavigationLinks(preemptive = false) {
+            const currentPath = window.location.pathname;
+            const isZH = preemptive 
+                ? !pathUtils.isZH(currentPath)  // 即将切换的状态
+                : pathUtils.isZH(currentPath);  // 当前实际状态
+
+            document.querySelectorAll('[data-navlink]').forEach(link => {
+                // 更新链接地址
+                const rawPath = link.dataset.raw;
+                const newPath = isZH 
+                    ? `/zh${rawPath === '/' ? '' : rawPath}` 
+                    : rawPath;
+                link.href = pathUtils.normalize(newPath);
+
+                // 更新链接文本（关键修复点）
+                link.textContent = isZH ? link.dataset.zh : link.dataset.en;
+            });
+        },
+
+        setupHistoryListener() {
+            window.addEventListener('popstate', () => {
+                this.rewriteNavigationLinks();
+                this.bindToggleButton();
+            });
         }
+    };
 
-        // 立即重写导航链接 (解决跳转前状态不一致问题)
-        rewriteLinks();
-        
-        // 同步更新浏览器历史 (可选)
-        window.history.replaceState({}, '', newPath);
-    });
-
-    // 监听浏览器前进/后退
-    window.addEventListener('popstate', rewriteLinks);
+    // 初始化
+    languageManager.init();
 });
 </script>
