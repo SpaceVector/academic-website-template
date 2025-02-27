@@ -1,12 +1,12 @@
 - name: Shan Jin
   photo: jinshan.jpg
-  info: Ph.D. student
+  # info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Shaojun Wu
   photo: rock.png
-  info: Ph.D. student
+  # info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
@@ -18,12 +18,12 @@
 
 - name: Zhen Yang
   photo: rock.png
-  info: Ph.D. student
+  # info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com
 
 - name: Yinjie Wu
   photo: rock.png
-  info: Ph.D. student
+  # info: Ph.D. student
   email: exampleemail@gmail.com
   # website: https://website.com

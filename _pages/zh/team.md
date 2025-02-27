@@ -42,7 +42,7 @@ permalink: /zh/Team/
 
 <div class="jumbotron">
 {% assign number_printed = 0 %}
-{% for member in site.data.administrative %}
+{% for member in site.data.administrative_zh %}
 
 {% assign even_odd = number_printed | modulo: 2 %}
 
@@ -172,7 +172,7 @@ permalink: /zh/Team/
 
 <div class="jumbotron">
 {% assign number_printed = 0 %}
-{% for member in site.data.alumni %}
+{% for member in site.data.alumni_zh %}
 
 {% assign even_odd = number_printed | modulo: 2 %}
 
