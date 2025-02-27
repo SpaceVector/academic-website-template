@@ -5,7 +5,7 @@ sitemap: false
 permalink: /zh/about/
 ---
 
-## About
+## 关于
 
 {% for member in site.data.pi %}
 

@@ -1,6 +1,8 @@
-{% assign path_segments = page.url | split: '/' %}
-{% assign is_zh = path_segments[1] == 'zh' %}
-
+{% comment %} 增强版Liquid判断，兼容/zh路径 {% endcomment %}
+{% assign is_zh = false %}
+{% if page.url == '/zh/' or page.url contains '/zh/' %}
+  {% assign is_zh = true %}
+{% endif %}
 <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-primary">
     <a class="navbar-brand" href="{{ site.url }}{{ site.baseurl }}/">
         {{ site.title | escape }}
@@ -44,31 +46,55 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    // 通用工具函数
     const pathUtils = {
-        normalize: (path) => path.replace(/\/+/g, '/').replace(/\/$/, '') || '/',
-        isZH: (path) => path.startsWith('/zh/') || path === '/zh',
-        toggleZH: (path) => {
-            const cleanPath = pathUtils.normalize(path);
-            return pathUtils.isZH(cleanPath) 
-                ? cleanPath.replace(/^\/zh(\/|$)/, '/') 
-                : `/zh${cleanPath.startsWith('/') ? cleanPath : `/${cleanPath}`}`;
+        // 改进路径规范化处理
+        normalizePath: (path) => {
+            return path.replace(/^\/+/, '/')       // 去除开头多余斜杠
+                      .replace(/\/+$/, '')         // 去除结尾多余斜杠
+                      .replace(/\/+/g, '/')        // 合并中间重复斜杠
+                      || '/';                      // 保证最小路径为/
+        },
+
+        // 精确路径转换算法
+        convertPath: (currentPath, targetLang) => {
+            const normalized = pathUtils.normalizePath(currentPath);
+            
+            // 转换为中文模式
+            if (targetLang === 'zh') {
+                // 首页特殊处理
+                if (normalized === '/') return '/zh';
+                return normalized.startsWith('/zh/') 
+                    ? normalized 
+                    : `/zh${normalized}`;
+            }
+            
+            // 转换为英文模式
+            const zhPrefixRegex = /^\/zh(\/|$)/;
+            if (zhPrefixRegex.test(normalized)) {
+                const remainPath = normalized.replace(zhPrefixRegex, '');
+                return remainPath ? `/${remainPath}` : '/';
+            }
+            return normalized;
         }
     };
 
-    // 核心控制器
     const languageManager = {
         init() {
+            this.syncLangState();
             this.bindToggleButton();
             this.rewriteNavigationLinks();
-            this.setupHistoryListener();
+        },
+
+        syncLangState() {
+            // 精确匹配语言状态
+            const path = pathUtils.normalizePath(window.location.pathname);
+            this.currentLang = path.startsWith('/zh') ? 'zh' : 'en';
+            document.getElementById('languageToggle').textContent = 
+                this.currentLang === 'zh' ? 'EN' : '中文';
         },
 
         bindToggleButton() {
             const toggleBtn = document.getElementById('languageToggle');
-            const currentPath = window.location.pathname;
-            
-            toggleBtn.textContent = pathUtils.isZH(currentPath) ? 'EN' : '中文';
             toggleBtn.addEventListener('click', (e) => {
                 e.preventDefault();
                 this.handleLanguageToggle();
@@ -76,41 +102,27 @@ document.addEventListener('DOMContentLoaded', () => {
         },
 
         handleLanguageToggle() {
-            const currentPath = window.location.pathname;
-            const newPath = pathUtils.toggleZH(currentPath);
+            const targetLang = this.currentLang === 'zh' ? 'en' : 'zh';
+            const newPath = pathUtils.convertPath(
+                window.location.pathname, 
+                targetLang
+            );
             
-            this.rewriteNavigationLinks(true); // 强制预更新链接
+            // 强制刷新保证Liquid模板更新
             window.location.href = `${newPath}${window.location.search}${window.location.hash}`;
         },
 
-        rewriteNavigationLinks(preemptive = false) {
-            const currentPath = window.location.pathname;
-            const isZH = preemptive 
-                ? !pathUtils.isZH(currentPath)  // 即将切换的状态
-                : pathUtils.isZH(currentPath);  // 当前实际状态
-
+        rewriteNavigationLinks() {
             document.querySelectorAll('[data-navlink]').forEach(link => {
-                // 更新链接地址
                 const rawPath = link.dataset.raw;
-                const newPath = isZH 
-                    ? `/zh${rawPath === '/' ? '' : rawPath}` 
-                    : rawPath;
-                link.href = pathUtils.normalize(newPath);
-
-                // 更新链接文本（关键修复点）
-                link.textContent = isZH ? link.dataset.zh : link.dataset.en;
-            });
-        },
-
-        setupHistoryListener() {
-            window.addEventListener('popstate', () => {
-                this.rewriteNavigationLinks();
-                this.bindToggleButton();
+                link.href = pathUtils.convertPath(rawPath, this.currentLang);
+                link.textContent = this.currentLang === 'zh' 
+                    ? link.dataset.zh 
+                    : link.dataset.en;
             });
         }
     };
 
-    // 初始化
     languageManager.init();
 });
 </script>

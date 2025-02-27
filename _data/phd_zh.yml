@@ -1,0 +1,29 @@
+- name: 金睒
+  photo: jinshan.jpg
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: 吴绍君
+  photo: rock.png
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: 郝亚杰
+  photo: rock.png
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: 杨振
+  photo: rock.png
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
+
+- name: 吴银杰
+  photo: rock.png
+  info: Ph.D. student
+  email: exampleemail@gmail.com
+  # website: https://website.com
