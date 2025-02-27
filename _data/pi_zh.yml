@@ -9,13 +9,13 @@
   # Change the items in "education" you have (up to 6)
   education:
     [
-      "(2016-now) Professor. Institute of Fundamental and Frontier Sciences of UESTC",
-      "(2015-2016) Post-Doctor.  Louisiana State University",
-      "(2012-2014) Post-Doctor.  MIT",
-      "(2011-2014) Post-Doctor.  University of Massachusetts Boston",
-      "(2011) Ph.D. University of Cambridge",
-      "(2006) Master. University of Cambridge",
+      "(2016-now) 教授 电子科技大学基础与前沿研究院教授",
+      "(2015-2016) 博士后  路易斯安那州立大学",
+      "(2012-2014) 博士后  麻省理工学院",
+      "(2011-2014) 博士后  麻州大学波士顿分校",
+      "(2011) 博士 剑桥大学",
+      "(2006) 硕士 剑桥大学",
     ]
 
   educationshort:
-    ["(2011) Ph.D. University of Cambridge", "(2006) Master. University of Cambridge"]
+    ["(2011) 博士 剑桥大学", "(2006) 硕士 剑桥大学"]

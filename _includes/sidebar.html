@@ -1,5 +1,11 @@
+{% comment %} 根据URL路径判断语言环境 {% endcomment %}
+{% assign lang_suffix = "" %}
+{% if page.url contains '/zh/' or page.url == '/zh' %}
+  {% assign lang_suffix = "_zh" %}
+{% endif %}
 <div>
-{% for member in site.data.pi %}
+{% assign target_data = "pi" | append: lang_suffix %}
+{% for member in site.data[target_data] %}
 <div class="jumbotron">
    <center>
    <!-- <a href="{{site.url}}{{site.baseurl}}/About"><img src="{{site.url}}{{site.baseurl}}/images/{{ member.photo }}" width="60%" style="block:inline; margin-left:auto; margin-right:auto; margin-bottom:5px;"/></a> -->
@@ -25,9 +31,9 @@
 </div>
 
 <div class="jumbotron">
-  <h4>Latest work</h4>
-
-  {% for article in site.data.news limit:3 %}
+  <h4>{% if lang_suffix == "_zh" %}最新动态{% else %}Latest work{% endif %}</h4>
+  {% assign target_data = "news" | append: lang_suffix %}
+  {% for article in site.data[target_data] limit:3 %}
   <b>{{ article.date }}</b>
     <p>{{ article.headline }}</p>
   {% endfor %}

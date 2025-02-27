@@ -21,11 +21,11 @@ permalink: /zh/Publications/
 </style>
 
 <div class="jumbotron">
-## **Refereed journal articles**
+## **期刊**
 {% bibliography --query @unpublished @article %}
 </div>
 
 <div class="jumbotron">
-## **Refereed conference proceedings**
+## **会议**
 {% bibliography --query @inproceedings %}
 </div>
