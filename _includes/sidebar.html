@@ -38,6 +38,9 @@
     <p>{{ article.headline }}</p>
   {% endfor %}
   
-  <h5><a href="{{ site.url }}{{ site.baseurl }}/Publications/">more...</a></h5>
-
+  {% if page.url contains '/zh/' or page.url == '/zh' %}
+    <h5><a href="{{ site.url }}{{ site.baseurl }}/zh/Publications/">more...</a></h5>
+  {% else %}
+    <h5><a href="{{ site.url }}{{ site.baseurl }}/Publications/">more...</a></h5>
+  {% endif %}
 </div>
