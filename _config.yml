@@ -3,7 +3,7 @@ title: QC&AI@UESTC
 email: xiaoting@uestc.edu.cn
 description: Academic webpage of Professor. Wang Xiaoting's Group
 baseurl: ""
-url: ""
+url: "localhost"
 
 # Google analytics ID: Uncomment and your own, if you like
 # google_analytics: XX
@@ -16,14 +16,14 @@ affiliation: >
   Professor of Physics<br/>
   California Institute of Technology
 
-location: >
-  University of Electronic Science and Technology of China<br/>
-  Chengdu, Sichuan, P.R.China<br/>
-  North Jianshe Road, 610054 
+# location: >
+#   University of Electronic Science and Technology of China<br/>
+#   Chengdu, Sichuan, P.R.China<br/>
+#   North Jianshe Road, 610054 
 
-contact: >
-  <a href="mailto:xiaoting@uestc.edu.cn" target="_blank"><i class="fa fa-envelope fa-1x"></i> Contact Dr. Wang via email</a> <br/>
-  <a href="https://github.com/sbryngelson/academic-website-template"><i class="fa fa-github fa-1x"></i> Use this site as a template!</a>
+# contact: >
+#   <a href="mailto:xiaoting@uestc.edu.cn" target="_blank"><i class="fa fa-envelope fa-1x"></i> Contact Dr. Wang via email</a> <br/>
+#   <a href="https://github.com/sbryngelson/academic-website-template"><i class="fa fa-github fa-1x"></i> Use this site as a template!</a>
 
 # Pages shown in navbar
 nav_pages:
