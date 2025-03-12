@@ -4,7 +4,15 @@ layout: gridlay
 sitemap: false
 permalink: /zh/Team/
 ---
-
+<style>
+.jumbotron{
+  border-radius: 25px;
+}
+.col-sm-2{
+  flex: 5%;
+  max-width: 13%;
+}
+</style>
 <!-- ## Team
 
 **We are looking for new team members** [(see openings)]({{ site.url }}{{ site.baseurl }}/vacancies) **!** -->

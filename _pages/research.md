@@ -28,6 +28,9 @@ iframe {
   display: inline;
   vertical-align: middle;
 }
+.jumbotron{
+  border-radius: 25px;
+}
 </style>
 
 ## Research
@@ -40,12 +43,34 @@ iframe {
 
 </div>
 
+<h4>The duplication-free quantum neural network</h4>
 <div class="jumbotron">
-  <div class="col-md-12 col-sm-12">
-  <h4>The duplication-free quantum neural network</h4> 
+  <div class="col-md-12 col-sm-12"> 
   <div class="text-center">
   <img src="{{ site.url }}{{ site.baseurl }}/images/dqnn.png" alt="描述图片内容" style="width: 600px; height: 350px; object-fit: contain;"><br/>
   </div>
- The duplication-free quantum neural network (DQNN) introduces nonlinearity by integrating a single quantum register with classical sigmoid functions, thereby eliminating the redundant designs in conventional quantum neural networks that rely on data duplication. This architecture employs multiple shallow variational quantum circuits and local observables for quantum state processing, coupled with classical nonlinear post-processing to achieve efficient learning, requiring only a logarithmic number of quantum bits &#36;\log d&#36; relative to classical data dimensionality. Rigorously grounded in the universal approximation theorem under the L²&#36;L^2&#36;-norm framework, the model's expressive power has been formally proven. Experimental evaluations demonstrate its superior performance with significantly lower relative errors in regression and classification tasks compared to QCL and CCQ benchmarks, exhibiting approximately 30% enhancement in noise robustness and achieving 97.6% classification accuracy. Practical validation through quantum phase transition identification (99.1% accuracy) further confirms its applicability. This resource-efficient and theoretically sound framework provides a viable solution for practical deployment on near-term quantum devices.
+ The duplication-free quantum neural network (DQNN) introduces nonlinearity by integrating a single quantum register with classical sigmoid functions, thereby eliminating the redundant designs in conventional quantum neural networks that rely on data duplication. This architecture employs multiple shallow variational quantum circuits and local observables for quantum state processing, coupled with classical nonlinear post-processing to achieve efficient learning, requiring only a logarithmic number of quantum bits &#36;\log d&#36; relative to classical data dimensionality. Rigorously grounded in the universal approximation theorem under the &#36;L^2&#36;-norm framework, the model's expressive power has been formally proven. Experimental evaluations demonstrate its superior performance with significantly lower relative errors in regression and classification tasks compared to QCL and CCQ benchmarks, exhibiting approximately 30% enhancement in noise robustness and achieving 97.6% classification accuracy. Practical validation through quantum phase transition identification (99.1% accuracy) further confirms its applicability. This resource-efficient and theoretically sound framework provides a viable solution for practical deployment on near-term quantum devices.
   </div>
 </div>
+
+<h4>The continuous-variable quantum search algorithm</h4> 
+<div class="jumbotron">
+  <div class="col-md-12 col-sm-12">
+  <div class="text-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/qcsa.png" alt="描述图片内容" style="width: 600px; height: 350px; object-fit: contain;"><br/>
+  </div>
+ We propose a fixed-point quantum continuous search algorithm based on continuous-variable (CV) quantum computing to address continuous search problems (CSPs), demonstrating broad applicability in optimization, physics, and engineering domains. By designing a Grover iteration structure incorporating parameterized rotation operators, the algorithm achieves efficient search in continuous domains without discretization, while proving its optimal query complexity of &#36;O(\frac{1}{\sqrt{\lambda}})&#36;, where &#36;\lambda&#36; denotes the measure ratio between the target solution space and the initial search space. The study further establishes a lower bound&#36;\frac{1}{2\sqrt{2}}[(1+\sqrt{p}−\sqrt{1-p})\sqrt{n-2}]&#36; for the query complexity of arbitrary quantum algorithms solving CSPs, confirming the algorithm's optimality. Additionally, we construct a quantum oracle framework tailored for continuous optimization, encoding gradient information into auxiliary quantum states via phase estimation techniques. Successful applications to non-convex optimization problems such as the Rosenbrock function and eigenvalue determination of continuous-spectrum operators highlight the algorithm's advantages in convergence robustness and noise resistance. This work provides both a theoretical framework and practical implementation schemes for continuous-variable quantum computing in complex optimization challenges.
+  </div>
+</div>
+
+<h4>Quantum reinforcement learning in continuous action space</h4> 
+<div class="jumbotron">
+  <div class="col-md-12 col-sm-12">
+  <div class="text-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/qrl.jpg" alt="描述图片内容" style="width: 600px; height: 350px; object-fit: contain;"><br/>
+  </div>
+ When applying reinforcement learning (RL) to quantum systems, significant challenges arise, particularly in addressing continuous action spaces where actions are not confined to discrete finite sets but span a continuous spectrum, leading to an exponential increase in computational complexity. This study proposes a quantum Deep Deterministic Policy Gradient (DDPG) algorithm tailored for continuous action spaces. The method employs variational quantum circuits to construct quantum neural networks, enabling the learning of optimal quantum operation sequences (i.e., control pulses) required to drive a quantum system from arbitrary initial states to target states. A key innovation lies in the algorithm’s ability to generate adaptive control sequences for any target state after a single training phase, eliminating the need for retraining when new target states are specified. The effectiveness of this approach is validated through numerical simulations on both single-qubit and two-qubit systems, and its application is further extended to solving quantum eigenvalue problems—fundamental challenges central to understanding the intrinsic properties of quantum systems.
+  </div>
+</div>
+
+
