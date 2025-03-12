@@ -73,4 +73,12 @@ iframe {
   </div>
 </div>
 
-
+<h4>Quantum image processing</h4>
+<div class="jumbotron">
+  <div class="col-md-12 col-sm-12">
+  <div class="text-center">
+  <img src="{{ site.url }}{{ site.baseurl }}/images/qip.png" alt="描述图片内容" style="width: 600px; height: 350px; object-fit: contain;"/>
+  </div>
+ Quantum image states, a representation method encoding classical image information into quantum states, leverage the principles of quantum superposition and entanglement to significantly reduce image storage requirements and enhance processing efficiency. However, challenges persist in efficiently preparing such quantum image states. The primary objective of this study is to develop an efficient encoding scheme for mapping classical image information into quantum states while investigating optimization strategies for quantum circuits to improve preparation efficiency. To achieve this, we explore diverse quantum state preparation methodologies, analyze their performance metrics including circuit depth and gate operation complexity, and optimize quantum circuits by reducing redundant quantum gate operations to minimize resource consumption. Furthermore, we examine the correlation between the structural features of images and the ease of quantum state preparation, aiming to identify image characteristics that facilitate efficient quantum mapping. This investigation seeks to establish cost-reduction optimization schemes and ultimately develop a highly efficient quantum image state preparation framework.
+  </div>
+</div>
