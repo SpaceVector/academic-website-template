@@ -13,8 +13,8 @@ As classical computing approaches its physical limits, the deep integration of q
 <div class="row">
 <center>
 <img src="{{ site.url }}{{ site.baseurl }}/images/banner.jpg" width="100%" alt="描述图片内容"/><br/>
-Examples of Feynman diagrams. <br/>
-Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949)
+<!-- Examples of Feynman diagrams. <br/>
+Feynman R., The theory of positrons. <i>Phys. Rev.</i> (1949) -->
 </center>
 </div>
 </div>

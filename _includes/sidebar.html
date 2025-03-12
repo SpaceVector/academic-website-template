@@ -3,6 +3,11 @@
 {% if page.url contains '/zh/' or page.url == '/zh' %}
   {% assign lang_suffix = "_zh" %}
 {% endif %}
+<style>
+.jumbotron{
+  border-radius: 25px;
+}
+</style>
 <div>
 {% assign target_data = "pi" | append: lang_suffix %}
 {% for member in site.data[target_data] %}
@@ -30,7 +35,7 @@
 {% endfor %}
 </div>
 
-<div class="jumbotron">
+<!-- <div class="jumbotron">
   <h4>{% if lang_suffix == "_zh" %}最新动态{% else %}Latest work{% endif %}</h4>
   {% assign target_data = "news" | append: lang_suffix %}
   {% for article in site.data[target_data] limit:3 %}
@@ -43,4 +48,4 @@
   {% else %}
     <h5><a href="{{ site.url }}{{ site.baseurl }}/Publications/">more...</a></h5>
   {% endif %}
-</div>
+</div> -->

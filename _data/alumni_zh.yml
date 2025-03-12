@@ -1,11 +1,35 @@
-- name: 样例
+- name: 何熙
   photo: rock.png
-  duration: In the lab 2015-18
-  info: Now at Univeristy of X
-  email: exampleemail@gmail.com
+  # duration: In the lab 2015-18
+  # info: Now at Univeristy of X
+  # email: exampleemail@gmail.com
 
-- name: Example Alumni Name
+- name: 朱献超
   photo: rock.png
-  duration: In the lab 2015-18
-  info: Now at Univeristy of X
-  email: exampleemail@gmail.com
+
+- name: 温丁丁
+  photo: rock.png
+
+- name: 侯晓凯
+  photo: rock.png
+
+- name: 李清钰
+  photo: rock.png
+
+- name: 黄玉含
+  photo: rock.png
+
+- name: 韩东洪
+  photo: rock.png
+
+- name: 钟璐
+  photo: rock.png
+
+- name: 杨颖俐
+  photo: rock.png
+
+- name: 田翊
+  photo: rock.png
+
+- name: 崔子栋
+  photo: rock.png
